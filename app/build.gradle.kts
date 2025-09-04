@@ -4,12 +4,12 @@ plugins {
 
 android {
     namespace = "com.full.screan"
-    compileSdk = 36
+    compileSdk = 34  // Reducido de 36
 
     defaultConfig {
         applicationId = "com.full.screan"
-        minSdk = 34
-        targetSdk = 36
+        minSdk = 23     // Reducido de 34 - Galaxy Tab A8 soporta desde API 23-28
+        targetSdk = 34  // Reducido de 36
         versionCode = 1
         versionName = "1.0"
 
@@ -25,17 +25,18 @@ android {
             )
         }
     }
+
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_11  // Volver a Java 11 para evitar warnings
+        targetCompatibility = JavaVersion.VERSION_11  // Volver a Java 11 para evitar warnings
     }
+
     buildFeatures {
         viewBinding = true
     }
 }
 
 dependencies {
-
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.constraintlayout)
@@ -43,8 +44,9 @@ dependencies {
     implementation(libs.lifecycle.viewmodel.ktx)
     implementation(libs.navigation.fragment)
     implementation(libs.navigation.ui)
+    implementation(libs.swiperefreshlayout)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
-    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
 }
